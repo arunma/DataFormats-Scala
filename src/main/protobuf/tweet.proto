@@ -11,10 +11,8 @@ message TweetProto {
     string text        = 9;
 }
 
-/*
 
 message UserTweetProto {
     string text        = 9;
     string user        = 4;
 }
-*/

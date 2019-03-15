@@ -4,7 +4,7 @@ import java.io.{BufferedOutputStream, File, FileOutputStream}
 import java.nio.file.Files
 
 import com.tweet.proto.TweetProtoOuter.TweetProto
-import com.tweet.proto.UserTweetProtoOuter.UserTweetProto
+import com.tweet.proto.TweetProtoOuter.UserTweetProto
 
 object ProtoBufSerDe {
 

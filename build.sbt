@@ -19,16 +19,20 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion //% Provided
 )
 
-//Thrift
-javaSource in Thrift := (javaSource in Compile).value  //baseDirectory.value / "src/main/java"
-
-//PB
 enablePlugins(ProtobufPlugin)
+
+//Thrift
+thriftOutputDir in Thrift := sourceManaged.value / "main/compiled_thrift"
+
+
+/*
+//PB
 javaSource in ProtobufConfig := (javaSource in Compile).value /// "src/main/java"
 
 //Avro
-/*Seq(avroSettings : _*)
+Seq(avroSettings : _*)
 javaSource in AvroConfig := sourceDirectory.value / "main" / "java"
-(stringType in AvroConfig) := "String"*/
+(stringType in AvroConfig) := "String"
+*/
 
 
