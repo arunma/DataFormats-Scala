@@ -1,3 +1,5 @@
+import com.intenthq.sbt.ThriftPlugin._
+
 name := "DataFormats-Scala"
 
 version := "0.1"
@@ -17,4 +19,16 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion //% Provided
 )
 
+//Thrift
+javaSource in Thrift := (javaSource in Compile).value  //baseDirectory.value / "src/main/java"
+
+//PB
 enablePlugins(ProtobufPlugin)
+javaSource in ProtobufConfig := (javaSource in Compile).value /// "src/main/java"
+
+//Avro
+/*Seq(avroSettings : _*)
+javaSource in AvroConfig := sourceDirectory.value / "main" / "java"
+(stringType in AvroConfig) := "String"*/
+
+

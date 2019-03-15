@@ -1,4 +1,4 @@
-namespace java com.arunma.tweet
+namespace java com.tweet.thrift
 
 struct TweetThrift {
     1:  required i64 target;

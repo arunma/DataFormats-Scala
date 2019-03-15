@@ -24,7 +24,7 @@ object AllSerDeSpark {
 
     val frame = convertToDataframe(tweet)
     writeToConsole(frame)
-    writeToFile(frame, "avro")
+    writeToFile(frame, "csv")
     spark.close()
 
   }

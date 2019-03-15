@@ -3,7 +3,8 @@ package protobuf
 import java.io.{BufferedOutputStream, File, FileOutputStream}
 import java.nio.file.Files
 
-import com.arunma.tweet.Tweet.{TweetProto, UserTweetProto}
+import com.tweet.proto.TweetProtoOuter.TweetProto
+import com.tweet.proto.UserTweetProtoOuter.UserTweetProto
 
 object ProtoBufSerDe {
 

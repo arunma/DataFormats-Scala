@@ -2,7 +2,7 @@ package protobuf
 
 import java.io.File
 
-import com.arunma.tweet.Tweet.TweetProto
+import com.tweet.proto.TweetProtoOuter.TweetProto
 
 object ProtoBufExample {
 

@@ -2,7 +2,8 @@ package avro
 
 import java.io.File
 
-import com.arunma.tweet.avro.{TweetAvro, UserTweetAvro}
+import com.tweet.avro.UserTweetAvro
+import com.tweet.avro.TweetAvro
 
 object AvroExample {
 
@@ -10,17 +11,25 @@ object AvroExample {
 
     val file = new File ("serialized_avro_file.avro")
     //Serialize
-    val tweet = TweetAvro
+    val tweet1 = TweetAvro
       .newBuilder
-      .setTarget(1)
+      .setTarget(88)
       .setId(123)
       .setDate("Saturday 8th, June")
-      .setUser("arunma")
-      .setText("Proto tweet")
+      .setUser("alpha1")
+      .setText("Avro tweet1")
       .build()
 
-    tweet.setText("First tweet")
-    AvroSerDe.serialize(tweet, file)
+    val tweet2 = TweetAvro
+      .newBuilder
+      .setTarget(99)
+      .setId(234)
+      .setDate("Sunday 9th, June")
+      .setUser("alpha2")
+      .setText("Avro tweet2")
+      .build()
+
+    AvroSerDe.serialize(List(tweet1, tweet2), file)
 
     //Deserialize with exact schema
     println("Deserializing Full Tweet")

@@ -2,8 +2,7 @@ package parquet
 
 import java.io.File
 
-import com.arunma.tweet.TweetThrift
-import com.arunma.tweet.avro.TweetAvro
+import com.tweet.avro.TweetAvro
 
 object ParquetExample {
 

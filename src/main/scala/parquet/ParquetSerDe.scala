@@ -2,7 +2,7 @@ package parquet
 
 import java.io.File
 
-import com.arunma.tweet.TweetThrift
+import com.tweet.thrift.TweetThrift
 import org.apache.avro.Schema
 import org.apache.avro.specific.SpecificRecord
 import org.apache.hadoop.conf.Configuration
