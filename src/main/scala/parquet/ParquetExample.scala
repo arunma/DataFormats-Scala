@@ -3,7 +3,7 @@ package parquet
 import java.io.File
 import java.nio.file.Files
 
-import com.tweet.avro.TweetAvro
+import com.tweet.avro.{TweetAvro, TweetAvroOpt, UserTweetAvro, UserTweetAvroOpt}
 import com.tweet.thrift.TweetThrift
 
 object ParquetExample {
@@ -12,31 +12,30 @@ object ParquetExample {
 
     val file = new File ("serialized_parquet_file.parquet")
     //Serialize
-    val tweet1 = TweetAvro
+/*    val tweet1 = TweetAvroOpt
       .newBuilder
       .setTarget(1)
-      .setId(123)
+      .setId(123l)
       .setDate("Saturday 8th, June")
       .setUser("alpha1")
       .setText("Parquet tweet1")
       .build()
 
 
-    val tweet2 = TweetAvro
+    val tweet2 = TweetAvroOpt
       .newBuilder
       .setTarget(2)
-      .setId(234)
+      .setId(234l)
       .setDate("Sunday 9th, June")
       .setUser("alpha2")
       .setText("Parquet tweet2")
-      .build()
+      .build()*/
 
-/*
     val tweet1 = new TweetThrift(1, 123, "Saturday 8th, June", "alpha1")
     tweet1.setText("Parquet Tweet1")
 
     val tweet2 = new TweetThrift(2, 234, "Sunday 9th, June", "alpha2")
-    tweet2.setText("Parquet Tweet2")*/
+    tweet2.setText("Parquet Tweet2")
 
     Files.deleteIfExists(file.toPath)
 
@@ -44,12 +43,11 @@ object ParquetExample {
     //ParquetSerDe.serializeWithThriftSchema(List(tweet1, tweet2), file)
 
     //Avro schema
-    ParquetSerDe.serializeWithAvroSchema(List(tweet1, tweet2), TweetAvro.SCHEMA$, file)
+    ParquetSerDe.serializeWithAvroSchema(List(tweet1, tweet2), TweetAvroOpt.SCHEMA$, file)
 
     //Deserialize with exact schema
     println("Deserializing Full Tweet")
-    val returnTweet = ParquetSerDe.deserializeWithAvroSchema(file, TweetAvro.SCHEMA$)
-    println (returnTweet)
+    ParquetSerDe.deserializeWithAvroSchema(file, UserTweetAvroOpt.SCHEMA$)
 
   }
 
